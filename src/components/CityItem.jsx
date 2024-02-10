@@ -10,9 +10,18 @@ const formatDate = (date) =>
 function CityItem({ city }) {
   const { cityName, emoji, date } = city;
 
+  const flagEmojiToPNG = (flag) => {
+    var countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
+      .map((char) => String.fromCharCode(char - 127397).toLowerCase())
+      .join("");
+    return (
+      <img src={`https://flagcdn.com/24x18/${countryCode}.png`} alt='flag' />
+    );
+  };
+
   return (
     <li className={styles.cityItem}>
-      <span className={styles.emoji}>{emoji}</span>
+      <span className={styles.emoji}>{flagEmojiToPNG(emoji)}</span>
       <h3 className={styles.name}>{cityName}</h3>
       <time className={styles.date}>({formatDate(date)})</time>
       <button className={styles.deleteBtn}>&times;</button>
