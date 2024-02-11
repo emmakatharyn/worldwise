@@ -1,6 +1,7 @@
 import styles from "./CountryItem.module.css";
 
 function CountryItem({ country }) {
+  // noticed that there's no national flag emojis on windows i guess? so this is a workaround
   const flagEmojiToPNG = (flag) => {
     var countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
       .map((char) => String.fromCharCode(char - 127397).toLowerCase())
