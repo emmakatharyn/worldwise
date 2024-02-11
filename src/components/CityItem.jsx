@@ -11,8 +11,6 @@ const formatDate = (date) =>
 function CityItem({ city }) {
   const { cityName, emoji, date, id, position } = city;
 
-  console.log(position);
-
   // noticed that there's no national flag emojis on windows i guess? so this is a workaround
   const flagEmojiToPNG = (flag) => {
     var countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
